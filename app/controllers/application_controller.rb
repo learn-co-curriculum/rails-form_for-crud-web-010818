@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def make_link(text, path)
-    
+
   end
 
 end
