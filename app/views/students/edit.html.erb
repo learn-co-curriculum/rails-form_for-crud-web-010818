@@ -1,10 +1,6 @@
-<h1>Create a New Student</h1>
-
 <%= form_for(@student) do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :email %>
   <%= f.date_field :dob %>
-  <%= f.submit 'Make a new Student'%>
+  <%= f.submit%>
 <% end %>
-
-<%= link_to 'See all students', students_path %>

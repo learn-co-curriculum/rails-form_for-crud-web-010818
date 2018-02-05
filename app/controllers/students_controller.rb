@@ -8,11 +8,30 @@ class StudentsController < ApplicationController
   end
 
   def new
+    @student = Student.new
   end
 
   def create
-    Student.create(name: params[:name])
+    # {student: {name: 'whatever', dob: ''}}
+    Student.new(student_params)
 
     redirect_to students_path
+  end
+
+  def edit
+    @student = Student.find_by(id: params[:id])
+  end
+
+  def update
+    @student = Student.find_by(id: params[:id])
+    @student.update(student_params)
+
+    redirect_to @student
+  end
+
+  private
+
+  def student_params
+    params.require(:student).permit(:name, :email, :dob)
   end
 end
